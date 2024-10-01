@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combination Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Combination Generator</h1>
+    <form method="POST">
+        <label for="name">Enter the name with *:</label>
+        <input type="text" name="name" id="name" required>
+        <input type="submit" value="Generate Combinations">
+    </form>
+    <div class="result">
+        {% if combinations %}
+            <h2>Total combinations: {{ combinations | length }}</h2>
+            <ul>
+                {% for combination in combinations %}
+                    <li>{{ combination }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
